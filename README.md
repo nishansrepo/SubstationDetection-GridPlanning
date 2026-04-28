@@ -1,4 +1,4 @@
-# ⚡ Grid Infrastructure Detection & Siting Pipeline
+# Grid Infrastructure Detection & Planning Pipeline
 
 Detect existing electrical substations from aerial imagery using deep learning, then recommend where to build new ones using mathematical optimization.
 
@@ -62,26 +62,26 @@ Utilities typically know their own assets. This tool is for everyone else:
  ┌─────────────────────────────────────────────────────────────────┐
  │                    DETECTION PHASE                              │
  │                                                                 │
- │  Bounding Box ──► NAIP Tiles ──► 512×512 Patches ──► U-Net    │
- │                   (from STAC)    (0.6m, 4-band)      Ensemble  │
+ │  Bounding Box ──► NAIP Tiles ──► 512×512 Patches ──► U-Net      │
+ │                   (from STAC)    (0.6m, 4-band)      Ensemble   │
  │                                                        │        │
- │                                              ┌─────────▼──────┐│
- │                                              │  metadata.csv  ││
- │                                              │  (detections)  ││
- │                                              └─────────┬──────┘│
+ │                                              ┌─────────▼──────┐ │
+ │                                              │  metadata.csv  │ │
+ │                                              │  (detections)  │ │
+ │                                              └─────────┬──────┘ │
  ├────────────────────────────────────────────────────────│────────┤
  │                    OPTIMIZATION PHASE                  │        │
  │                                                        ▼        │
- │  Census Pop ─────┐                            ┌──────────────┐ │
- │  MS Buildings ───┼──► Demand Grid ──► MILP ──►│ Recommended  │ │
- │  OSM TX Lines ───┘    (kW per cell)   Solver  │ Sites + Map  │ │
- │                                               └──────────────┘ │
- ├────────────────────────────────────────────────────────────────┤
- │                    SITE ANALYSIS PHASE                         │
- │                                                                │
- │  Each site ──► Reverse Geocode ──► Land-Use Check ──► Map     │
- │                (street address)    (parks/wetlands)   (Folium) │
- └────────────────────────────────────────────────────────────────┘
+ │  Census Pop ─────┐                            ┌──────────────┐  │
+ │  MS Buildings ───┼──► Demand Grid ──► MILP ──►│ Recommended  │  │
+ │  OSM TX Lines ───┘    (kW per cell)   Solver  │ Sites + Map  │  │
+ │                                               └──────────────┘  │
+ ├─────────────────────────────────────────────────────────────────┤
+ │                    SITE ANALYSIS PHASE                          │
+ │                                                                 │
+ │  Each site ──► Reverse Geocode ──► Land-Use Check ──► Map       │
+ │                (street address)    (parks/wetlands)   (Folium)  │
+ └─────────────────────────────────────────────────────────────────┘
 ```
 
 The detection and optimization phases are connected by a single file: `metadata.csv`. This means you can swap in your own substation locations (from any source) and still use the optimizer, or use the detector standalone for asset mapping.
@@ -93,7 +93,7 @@ The detection and optimization phases are connected by a single file: `metadata.
 ### Prerequisites
 
 - Python 3.10+
-- ~3 GB disk space for demo imagery
+- ~7 GB disk space for demo imagery
 - ~500 MB for model weights
 - Internet connection (for NAIP download and Census/OSM queries)
 
@@ -177,17 +177,7 @@ python scripts/extract_region.py \
     -o demo_data -v
 ```
 
-The `--county` flag is still required because it tells the pipeline which state FIPS code and UTM zone to use. The `--bbox` overrides the preset's default bounding box.
-
-### Sizing guide
-
-| Area Size | Approx. Patches | Disk | MILP Solve Time | Use Case |
-|-----------|-----------------|------|-----------------|----------|
-| 20×20 km | ~4,200 | ~1.7 GB | <30 seconds | Quick testing |
-| 30×30 km | ~9,500 | ~3.8 GB | 1–3 minutes | City-level analysis |
-| 50×50 km | ~26,500 | ~10 GB | 5–10 minutes | Metro planning |
-| 80×80 km | ~68,000 | ~27 GB | 15–30 minutes | Large metro |
-| 150+ km | 200k+ | 80+ GB | Hours or infeasible | **Don't do this** |
+The `--county` flag is still required because it tells the pipeline which state FIPS code and UTM zone to use. The `--bbox` overrides the preset's default bounding box. For disk use intuition, bounding box area sizes up to 30×30 km are feasibly run on a machine with 10 GB disk space.
 
 ---
 
