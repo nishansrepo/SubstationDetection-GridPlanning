@@ -1,0 +1,51 @@
+candidate_id,lat,lon,n_cells_served,total_load_kw,avg_service_dist_m,location_name,city,road,suitability,suitability_reason,nearby_restrictions
+5.0,33.37230284394941,-112.13764877602935,1.0,19026.5,0.0,"South Cesar Chavez Park Road, Laveen, Phoenix",Phoenix,South Cesar Chavez Park Road,restricted,"Near: Cesar Chavez Park, unnamed",leisure=park; natural=water; natural=water
+6.0,33.3993569459062,-112.13800123519803,1.0,21993.2,0.0,"West Roeser Road, Laveen, Phoenix",Phoenix,West Roeser Road,restricted,"Near: Playa Margarita Park, unnamed",leisure=park; natural=water; natural=water
+7.0,33.45346478545283,-112.13870756760909,1.0,40595.6,0.0,"North 37th Avenue, Estrella, Phoenix",Phoenix,North 37th Avenue,suitable,No restricted areas detected within 500m,
+8.0,33.507572138827456,-112.13941578941531,1.0,55062.0,0.0,"North 37th Avenue, Alhambra, Phoenix",Phoenix,North 37th Avenue,restricted,Near: Cielito Park,leisure=park
+9.0,33.53462563306961,-112.1397706103325,1.0,48194.1,0.0,"West Ocotillo Road, Alhambra, Phoenix",Phoenix,West Ocotillo Road,restricted,Near: La Pradera Park,leisure=park
+10.0,33.561679005612156,-112.14012590538998,1.0,7077.8,0.0,"West Diana Avenue, North Mountain, Phoenix",Phoenix,West Diana Avenue,restricted,Near: Hoshoni Park,leisure=park
+12.0,33.37259418702772,-112.10540432125735,1.0,20072.8,0.0,"West Desert Lane, South Mountain, Phoenix",Phoenix,West Desert Lane,restricted,"Near: unnamed, unnamed",leisure=park; leisure=park; leisure=park
+13.0,33.399648586845856,-112.10574679568536,1.0,31032.2,0.0,"West Roeser Road, Park Phoenix, Phoenix",Phoenix,West Roeser Road,restricted,"Near: Lindo Park, unnamed",leisure=park; leisure=park; leisure=park
+14.0,33.4537570226587,-112.1064331185702,1.0,23202.3,0.0,"West Fillmore Street, Central City, Phoenix",Phoenix,West Fillmore Street,restricted,Near: Memory Lawn Cemetery,landuse=cemetery
+15.0,33.53491876603818,-112.1074660466395,1.0,58398.4,0.0,"North 23rd Avenue, Alhambra, Phoenix",Phoenix,North 23rd Avenue,suitable,No restricted areas detected within 500m,
+16.0,33.56197243753307,-112.10781127664745,2.0,12551.1,1500.0,"North 23rd Avenue, North Mountain, Phoenix",Phoenix,North 23rd Avenue,suitable,No restricted areas detected within 500m,
+18.0,33.3728771569399,-112.0731594092439,1.0,38822.9,0.0,"South Central Avenue, South Mountain, Phoenix",Phoenix,South Central Avenue,suitable,No restricted areas detected within 500m,
+19.0,33.39993184606076,-112.0734918983556,1.0,36057.7,0.0,"South Central Avenue, South Mountain, Phoenix",Phoenix,South Central Avenue,restricted,"Near: Hayden Park, Sunland Estates Park",leisure=park; leisure=park
+21.0,33.50814939121381,-112.07482630514279,1.0,38906.8,0.0,"West Mariposa Street, Alhambra, Phoenix",Phoenix,West Mariposa Street,suitable,No restricted areas detected within 500m,
+22.0,33.53520347441078,-112.07516102223344,1.0,30672.5,0.0,"West Lawrence Road, Alhambra, Phoenix",Phoenix,West Lawrence Road,restricted,Near: unnamed,natural=water
+25.0,33.37315175329295,-112.04091405331607,1.0,21058.6,0.0,"South 19th Way, South Mountain, Phoenix",Phoenix,South 19th Way,suitable,No restricted areas detected within 500m,
+26.0,33.400206723157346,-112.04123655655256,1.0,37898.0,0.0,"East Atlanta Avenue, South Mountain, Phoenix",Phoenix,East Atlanta Avenue,restricted,"Near: Bishop Alexis A. Thomas Park, Hermoso Park",leisure=park; leisure=park
+28.0,33.45431630010298,-112.04188285695402,1.0,28315.0,0.0,"North 19th Street, Central City, Phoenix",Phoenix,North 19th Street,restricted,Near: Edison Park,leisure=park
+29.0,33.48137090708112,-112.04220665520657,1.0,43588.6,0.0,"North 18th Place, Bronze Boot, Phoenix",Phoenix,North 18th Place,suitable,No restricted areas detected within 500m,
+30.0,33.535479757791,-112.04285555054253,1.0,28479.1,0.0,"North Ocotillo Hermosa Circle, Camelback East, Phoenix",Phoenix,North Ocotillo Hermosa Circle,restricted,"Near: Granada Lake, Granada Park",natural=water; leisure=park; natural=water
+31.0,33.56253400142022,-112.04318064872017,2.0,4868.0,1500.0,"North 17th Place, North Mountain, Phoenix",Phoenix,North 17th Place,suitable,No restricted areas detected within 500m,
+33.0,33.37341797570549,-112.00866826680213,1.0,13919.0,0.0,"East Francisco Drive, South Mountain, Phoenix",Phoenix,East Francisco Drive,restricted,"Near: unnamed, South Mountain Park and Preserve",leisure=park; boundary=protected_area; leisure=nature_reserve
+34.0,33.400473217753685,-112.00898078362128,1.0,19303.7,0.0,"East Atlanta Way, South Mountain, Phoenix",Phoenix,East Atlanta Way,suitable,No restricted areas detected within 500m,
+36.0,33.454583339563655,-112.0096070711329,1.0,38731.7,0.0,"East Fillmore Street, Rancho Hermoso, Phoenix",Phoenix,East Fillmore Street,restricted,Near: unnamed,natural=water
+37.0,33.48163821922287,-112.0099208428793,1.0,53504.1,0.0,"North 33rd Street, Country Club Trailer Grove, Phoenix",Phoenix,North 33rd Street,restricted,Near: Perry Park,leisure=park
+38.0,33.50869297798337,-112.0102350339905,1.0,27499.9,0.0,"North 33rd Place, Camelback East, Phoenix",Phoenix,North 33rd Place,suitable,No restricted areas detected within 500m,
+41.0,33.34662019760245,-111.97611993708149,3.0,15418.1,2414.0,"East Cheyenne Drive, Ahwatukee Foothills, Phoenix",Phoenix,East Cheyenne Drive,suitable,No restricted areas detected within 500m,
+42.0,33.40073132947946,-111.97672459290789,1.0,21370.0,0.0,"West Alameda Drive, Tempe",Tempe,West Alameda Drive,restricted,"Near: Double Butte Cemetery, unnamed",landuse=cemetery; leisure=park
+44.0,33.48189712278203,-111.97763461118743,1.0,34299.3,0.0,"East Pinchot Avenue, Camelback East, Phoenix",Phoenix,East Pinchot Avenue,restricted,Near: Old Cross Cut Canal Park,leisure=park
+48.0,33.37392529724158,-111.94417545533437,1.0,44161.9,0.0,"South Kyrene Road, Peterson, Tempe",Tempe,South Kyrene Road,suitable,No restricted areas detected within 500m,
+49.0,33.40098105797605,-111.94446799775957,1.0,31065.2,0.0,"South Wilson Street, Tempe",Tempe,South Wilson Street,suitable,No restricted areas detected within 500m,
+53.0,33.56331309158543,-111.9462314824186,2.0,6495.7,1500.0,"North Sendero Tres, Paradise Valley",Paradise Valley,North Sendero Tres,suitable,No restricted areas detected within 500m,
+54.0,33.34711026819541,-111.9116462798229,1.0,11290.7,0.0,"South McClintock Drive, Tempe",Tempe,South McClintock Drive,restricted,"Near: unnamed, unnamed",natural=water; leisure=park; leisure=park
+55.0,33.37416639566046,-111.9119284570424,1.0,36674.9,0.0,"East Edgewater Drive, The Lakes, Tempe",Tempe,East Edgewater Drive,restricted,"Near: unnamed, unnamed",natural=water; natural=water; leisure=park
+56.0,33.401222402896394,-111.91221101152453,1.0,49907.3,0.0,"East Gaylon Drive, Tempe",Tempe,East Gaylon Drive,restricted,"Near: unnamed, unnamed",leisure=park; leisure=park; leisure=park
+57.0,33.45533405647839,-111.9127772541777,1.0,33391.2,0.0,"East McKinley Street, Scottsdale",Scottsdale,East McKinley Street,restricted,"Near: Vista South Lake, McKellips Lake",natural=water; natural=water; natural=water
+58.0,33.48238970272344,-111.9130609433017,1.0,37145.6,0.0,"North 78th Street, Scottsdale",Scottsdale,North 78th Street,suitable,No restricted areas detected within 500m,
+59.0,33.50944522853735,-111.91334501159426,1.0,36543.7,0.0,"East Chaparral Road, Scottsdale",Scottsdale,East Chaparral Road,restricted,"Near: unnamed, unnamed",natural=water; natural=water; natural=water
+60.0,33.53650063386988,-111.91362945953426,1.0,20953.0,0.0,"North 77th Street, Scottsdale",Scottsdale,North 77th Street,restricted,"Near: unnamed, unnamed",natural=water; natural=water; natural=water
+61.0,33.563555918670865,-111.91391428760163,1.0,4821.3,0.0,Scottsdale,Scottsdale,,restricted,"Near: unnamed, Scottsdale Rotary Park",natural=water; leisure=park; natural=water
+62.0,33.3473427534692,-111.87940887935316,1.0,15577.0,0.0,"West Comstock Drive, Chandler",Chandler,West Comstock Drive,restricted,"Near: unnamed, unnamed",leisure=park; natural=water; natural=water
+63.0,33.3743991187295,-111.87968108148802,1.0,33250.5,0.0,"South Dobson Road, Dobson Shores, Mesa",Mesa,South Dobson Road,restricted,"Near: unnamed, unnamed",natural=water; natural=water; natural=water
+64.0,33.40145536390514,-111.87995364755203,1.0,47570.7,0.0,"West del Campo Circle, Mesa",Mesa,West del Campo Circle,restricted,Near: Daumler Park,leisure=park
+65.0,33.455567493800814,-111.88049987330157,1.0,4693.5,0.0,North 92nd Street,,North 92nd Street,suitable,No restricted areas detected within 500m,
+70.0,33.34756687162691,-111.84717111541171,1.0,10244.3,0.0,"West Mission Drive, Chandler",Chandler,West Mission Drive,restricted,"Near: unnamed, unnamed",leisure=park; leisure=park; leisure=park
+71.0,33.37462346612543,-111.84743334200456,1.0,26216.1,0.0,"West Kiowa Avenue, Mesa",Mesa,West Kiowa Avenue,restricted,"Near: unnamed, unnamed",leisure=park; leisure=park; leisure=park
+72.0,33.401679940678534,-111.84769591919225,1.0,22857.3,0.0,"West 7th Avenue, Mesa",Mesa,West 7th Avenue,restricted,"Near: Powell Estates Subdivision Mini Park, unnamed",leisure=park; leisure=park; leisure=park
+73.0,33.42873629523602,-111.84795884741622,1.0,24033.4,0.0,"West Rio Salado Parkway, Mesa",Mesa,West Rio Salado Parkway,suitable,No restricted areas detected within 500m,
+74.0,33.45579252974781,-111.84822212711886,5.0,7943.1,3249.0,West McKellips Road,,West McKellips Road,suitable,No restricted areas detected within 500m,
+81.0,33.53717781082823,-111.81670585293358,22.0,3761.1,7507.0,East Cactus Wren Road,,East Cactus Wren Road,suitable,No restricted areas detected within 500m,
