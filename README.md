@@ -1,4 +1,4 @@
-# ⚡ Grid Infrastructure Detection & Siting Pipeline
+# Grid Infrastructure Detection & Planning Pipeline
 
 Detect existing electrical substations from aerial imagery using deep learning, then recommend where to build new ones using mathematical optimization.
 
