@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Data (downloaded at runtime)
+data/census/
+data/buildings/
+data/osm/
+data/im3_open_source_data_center_atlas/
+
+# Model weights (hosted externally)
+model/*.pt
+
+# Demo data (hosted externally)
+demo_data/
+
+# Evaluation datasets (internal, not on GitHub)
+eval_dataset/
+extra_val/
+new/
+
+# Outputs
+output/
+results/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
