@@ -5,6 +5,8 @@ Detect existing electrical substations from aerial imagery using deep learning, 
 **Input**: A geographic bounding box  
 **Output**: Ranked substation site recommendations with street addresses, load estimates, and land-use suitability flags — plotted on an interactive satellite map.
 
+> **Model Training Code:** See [`substation_training.ipynb`](substation_training.ipynb) — a self-contained notebook covering dataset loading, 5-fold cross-validation training, ensemble construction, calibration, and evaluation. It is the single source of truth for how the detection model was produced.
+
 ---
 
 ## Table of Contents
@@ -20,6 +22,7 @@ Detect existing electrical substations from aerial imagery using deep learning, 
 - [Preloaded Demo Output](#preloaded-demo-output)
 - [Project Structure](#project-structure)
 - [Model Details](#model-details)
+- [Training Notebook](#training-notebook)
 - [Optimizer Details](#optimizer-details)
 - [CLI Reference](#cli-reference)
 - [Troubleshooting](#troubleshooting)
@@ -341,6 +344,7 @@ preloaded_demo_output/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+├── substation_training.ipynb          # ★ Model training & evaluation notebook
 │
 ├── scripts/                           # All runnable scripts
 │   ├── local_pipeline.py              # ★ Main pipeline: detect → optimize → analyze
@@ -469,6 +473,40 @@ The `scripts/` directory contains both **user-facing pipeline scripts** and **de
 Patch-level detection performance: 99.8% precision (2 false positives out of 1,717 negatives), 88.2% recall.
 
 Best-performing county: Maricopa, AZ (0.894 IoU). Worst: King, WA (0.553 IoU). Performance degrades in heavily forested regions where tree canopy occludes infrastructure.
+
+---
+
+## Training Notebook
+
+[`substation_training.ipynb`](substation_training.ipynb) is a self-contained Jupyter notebook (~2,700 lines of code across 12 code cells) that documents the complete model development workflow. It runs in Google Colab or locally and produces the `ensemble_model.pt` checkpoint used by the inference pipeline. By default it loads the cached ensemble and reproduces evaluation metrics without retraining; setting `run_full_training = True` reruns everything from scratch.
+
+### What the notebook covers
+
+**1. Runtime Setup** — Installs missing dependencies, mounts Google Drive (Colab), and imports all packages for raster I/O, training, and evaluation.
+
+**2. Configuration** — Centralizes all hyperparameters, paths, and execution switches in a single config dictionary for auditability:
+
+| Parameter | Value |
+|-----------|-------|
+| Encoder | ResNet-34 (ImageNet pretrained) |
+| Training schedule | 2 epochs frozen encoder (lr=1e-3) → 12 epochs full fine-tune (lr=1e-4) |
+| Batch size | 8 (GPU) / 4 (CPU) |
+| Folds | 5 (StratifiedGroupKFold, grouped by `county_geoid`) |
+| Aggregation | Max across fold probabilities |
+| Patch threshold | 0.03 (top-1% pixel scoring) |
+| Loss | Dice + BCE (combined) |
+
+**3. Dataset Loading & Fold Plan** — Loads curated train/val/val2/test splits and reconstructs the 5-fold cross-validation plan from the `train + val2` pool. Folds are grouped by county so that no county appears in both training and validation within the same fold, giving a conservative estimate of geographic generalization. An optional label-audit filter removes patches flagged by NDVI/NDWI noise detection.
+
+**4. Training Functions** — Defines raster reading (4-band GeoTIFF normalization with per-fold channel statistics), data augmentation, the U-Net model via `segmentation-models-pytorch`, a two-stage training schedule (frozen encoder then full fine-tuning with cosine annealing), and early stopping by validation Dice.
+
+**5. Cross-Validation Loop** — Trains each fold with resumable checkpointing, tunes a patch-level detection threshold on each fold's validation split, and evaluates on the fixed test set. Each fold exports its best checkpoint.
+
+**6. Evaluation & Calibration** — Computes pixel-level metrics (Dice, IoU) and patch-level metrics (precision, recall, F1, ROC-AUC, average precision). Patch scores are derived from the mean probability of the top 1% of predicted pixels, which avoids penalizing correct models for not predicting the exact substation boundary.
+
+**7. Ensemble Construction** — Loads all 5 fold checkpoints, evaluates four aggregation methods (mean, median, trimmed mean, max), selects `max` aggregation as the final strategy (preserves strong evidence from any single fold), and exports the combined checkpoint.
+
+**8. Pipeline Execution & Final Summary** — Runs exactly one branch (cached evaluation or full training), reports final metrics on validation and test splits, and generates visual prediction demonstrations showing the input image, probability heatmap, binary mask, and top-scoring pixels.
 
 ---
 
